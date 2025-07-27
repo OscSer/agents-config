@@ -23,6 +23,48 @@ cp -r commands/ ~/.claude/commands/
 cp settings/settings.json ~/.claude/settings.json
 ```
 
+## Workflow
+
+```mermaid
+flowchart TD
+    A[Usuario solicita funcionalidad] --> B{¿Es complejo?}
+    
+    B -->|Sí| C[/plan - Crear plan de implementación]
+    B -->|No| G[Implementación directa]
+    
+    C --> D[planner agent]
+    D --> E[plan/DD-MM_titulo.md]
+    
+    E --> F[/implement - Ejecutar plan]
+    F --> H[implementer agent]
+    
+    H --> I[Implementación paso a paso]
+    I --> J[reviewer agent]
+    J --> K{¿Revisión OK?}
+    
+    K -->|No| L[Correcciones]
+    L --> I
+    
+    K -->|Sí| M[/commit - Crear commit]
+    G --> M
+    
+    M --> N[Commit estandarizado]
+    
+    O[/code-review] --> P[reviewer agent]
+    P --> Q[Reporte de revisión]
+    
+    R[debugger agent] --> S[Análisis y solución de errores]
+    
+    style C fill:#e1f5fe
+    style F fill:#e8f5e8
+    style M fill:#fff3e0
+    style O fill:#fce4ec
+    style D fill:#f3e5f5
+    style H fill:#f3e5f5
+    style J fill:#f3e5f5
+    style R fill:#f3e5f5
+```
+
 ## Structure
 
 - `agents/` - Custom specialized agents
