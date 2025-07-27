@@ -20,3 +20,5 @@ description: Commit staged changes
 
 [body]
 ```
+
+- After creating the commit, inform the user about the commit and message that was created.

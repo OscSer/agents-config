@@ -33,11 +33,6 @@ Use these templates as starting points when creating new agents or commands to e
    - Use consistent naming conventions
    - Include comprehensive process definition
 
-3. **Validation**
-   - Verify no role overlap with existing agents
-   - Ensure quality standards are met
-   - Review and refine based on usage
-
 ### Adding New Commands
 
 1. **Design Phase**
@@ -54,12 +49,8 @@ Use these templates as starting points when creating new agents or commands to e
    - Use descriptive naming
    - Include proper agent delegation
 
-3. **Validation**
+## Documentation Guidelines
 
-   - Validate agent delegation
-   - Document usage patterns
-   - Update workflow documentation
-
-## Documentation
-
-- Update CLAUDE.md and README.md if needed
+- Update CLAUDE.md and README.md if needed to reflect changes
+- When documenting project structure, ignore files and directories listed in .gitignore
+- Focus documentation on tracked files that are part of the repository configuration
