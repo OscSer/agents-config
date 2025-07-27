@@ -20,11 +20,12 @@ cp -r agents/ ~/.claude/agents/
 cp -r commands/ ~/.claude/commands/
 
 # Copy main configuration
-cp settings.json ~/.claude/settings.json
+cp settings/settings.json ~/.claude/settings.json
 ```
 
 ## Structure
 
 - `agents/` - Custom specialized agents
 - `commands/` - Custom slash commands
-- `settings.json` - Main Claude Code configuration
+- `settings/` - Configuration files
+  - `settings.json` - Main Claude Code configuration
