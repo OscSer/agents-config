@@ -4,7 +4,20 @@ This repository contains my personal configuration for Claude Code.
 
 ## Installation
 
-To copy this configuration to your system:
+### Quick Installation
+
+```bash
+# Clone this repository
+git clone https://github.com/OscSer/claude-code-config.git
+
+# Navigate to the folder
+cd claude-code-config
+
+# Run the installation script
+./install.sh
+```
+
+### Manual Installation
 
 ```bash
 # Clone this repository
@@ -25,8 +38,8 @@ cp settings/settings.json ~/.claude/settings.json
 
 ## Structure
 
-- `agents/` - Custom specialized agents (debugger, implementer, planner, reviewer)
-- `commands/` - Custom slash commands (plan, implement, fix, code-review, commit)
+- `agents/` - Custom specialized agents
+- `commands/` - Custom slash commands
 - `settings/` - Main Claude Code configuration files
 - `templates/` - Development templates for creating new agents and commands
 
