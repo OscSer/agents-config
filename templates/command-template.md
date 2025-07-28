@@ -13,6 +13,7 @@ description: "Describe command objective"
 - [Guidance of tasks]
 - [Agent delegation if applicable]
 - [Output format specifications if needed]
+
   ```
   [Expected output format]
   ```

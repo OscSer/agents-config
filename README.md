@@ -66,7 +66,7 @@ flowchart TD
     end
 
     %% Common endpoints
-    Implement --> CodeReview["/code-review<br/>🔍 reviewer agent"]
+    Implement --> CodeReview["/review<br/>🔍 reviewer agent"]
     AutoImplement --> CodeReview
     CodeReview --> Commit["/commit<br/>📝 conventional commits"]
 

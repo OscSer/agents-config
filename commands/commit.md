@@ -1,5 +1,5 @@
 ---
-description: Commit staged changes
+description: "Commit staged changes"
 ---
 
 ## Context
@@ -9,16 +9,15 @@ description: Commit staged changes
 
 ## Your task
 
-- Based on the above changes, create a single git commit.
-- NEVER run `git add` without explicit user authorization. Only work with files that are already staged.
-- If the project has defined commit instructions, follow them.
-- The commit description should be concise and clear.
-- The commit must follow conventional commit format:
+- Create a single git commit
+- NEVER run `git add` without explicit authorization. If there are no changes in the staging area, ask the user to provide explicit confirmation.
+- If the project has defined commit instructions, follow them
+- The commit description should be concise and clear
+- The commit must follow conventional commit format `<type>[scope]: <description>`
+- After creating the commit, inform the user: `Commit created: [complete commit message]`
 
-```text
-<type>[scope]: <description>
+## Constraints
 
-[body]
-```
-
-- After creating the commit, inform the user about the commit and message that was created.
+- Only commit staged changes
+- Follow conventional commit format strictly
+- Keep commit messages clear and descriptive

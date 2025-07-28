@@ -1,5 +1,5 @@
 ---
-description: Create an implementation plan for a given request
+description: "Create an implementation plan for a given request"
 ---
 
 ## Context
@@ -8,35 +8,41 @@ description: Create an implementation plan for a given request
 
 ## Your task
 
-- Create a file in the `/plan` directory, the file name should include the day, month and a title of maximum 3 words, example: `plan/31-07_refactor-auth.md`
-- Analyze the user's request and use the `planner` agent to create a detailed implementation plan
-- If any task is complex, divide it into multiple sub-tasks
+- Create a file in the `/plan` directory, the file name should include the day, month and a title of maximum 3 words, example: `plan/31-07-refactor-auth.md`
+- Use the `planner` agent to get a detailed analysis
 - At the end you should inform the user `plan created: [relative file path]`
-- The plan should be in markdown format and include this structure:
+- The file must have the following structure:
 
-```markdown
-# [plan title]
+  ```markdown
+  # [plan title]
 
-## Objective
+  ## Objective
 
-[objective description]
+  [objective description]
 
-## Scope
+  ## Scope
 
-[scope description]
+  [scope description]
 
-## Tasks
+  ## Tasks
 
-- [] First task
+  - [] First task
 
-  - First step
-  - Second step
+    - First step
+    - Second step
+    - ...
 
-- [] Second task
+  - [] Second task
 
-  - First step
-  - Second step
-  - Third step
+    - First step
+    - Second step
+    - Third step
+    - ...
 
-- [rest of tasks...]
-```
+  - [Rest of tasks...]
+  ```
+
+## Constraints
+
+- Break down complex tasks into manageable sub-tasks
+- Consider dependencies between tasks
