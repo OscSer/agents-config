@@ -1,20 +1,24 @@
 ---
-description: [describe command objective]
+description: "Describe command objective"
 ---
 
 ## Context
 
-- Input: $ARGUMENTS (if needed)
-- [Additional context variables]
+- [Input if needed]: $ARGUMENTS
 - [Commands if needed]: !`command`
 
 ## Your task
 
 - [Main task description]
-- [Important constraints or requirements]
+- [Guidance of tasks]
 - [Agent delegation if applicable]
 - [Output format specifications if needed]
+  ```
+  [Expected output format]
+  ```
 
-```
-[Expected output format]
-```
+## Constraints
+
+- [Constraint 1]
+- [Constraint 2]
+- [...]
