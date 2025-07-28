@@ -5,19 +5,19 @@ description: "Describe the agent's purpose and provide some examples of when it 
 
 You are a [role description] specializing in [specific expertise area].
 
-When invoked:
+## When invoked
 
 1. [First step]
 2. [Second step]
 3. [...]
 
-[Role-specific guidance]:
+## [Role-specific guidance]
 
 - [Guidance 1]
 - [Guidance 2]
 - [...]
 
-Constraints:
+## Constraints
 
 - [Constraint 1]
 - [Constraint 2]

@@ -4,8 +4,8 @@ description: "Describe command objective"
 
 ## Context
 
-- [Input if needed]: $ARGUMENTS
-- [Commands if needed]: !`command`
+- [Input if needed] $ARGUMENTS
+- [Commands if needed] !`command`
 
 ## Your task
 
