@@ -4,7 +4,7 @@ This repository contains my personal configuration for Claude Code.
 
 ## Installation
 
-### Quick Installation
+### Clone Repository
 
 ```bash
 # Clone this repository
@@ -12,7 +12,11 @@ git clone https://github.com/OscSer/claude-code-config.git
 
 # Navigate to the folder
 cd claude-code-config
+```
 
+### Quick Installation
+
+```bash
 # Run the installation script
 ./install.sh
 ```
@@ -20,12 +24,6 @@ cd claude-code-config
 ### Manual Installation
 
 ```bash
-# Clone this repository
-git clone https://github.com/OscSer/claude-code-config.git
-
-# Navigate to the folder
-cd claude-code-config
-
 # Copy custom agents
 cp -r agents/* ~/.claude/agents/
 
