@@ -17,9 +17,3 @@ description: "Describe command objective"
   ```
   [Expected output format]
   ```
-
-## Constraints
-
-- [Constraint 1]
-- [Constraint 2]
-- [...]

@@ -9,7 +9,7 @@ description: "Create an implementation plan for a given request"
 ## Your task
 
 - Create a file in the `/plan` directory, the file name should include the day, month and a title of maximum 3 words, example: `plan/31-07-refactor-auth.md`
-- Use the `planner` agent to get a detailed analysis
+- Use the `software-architect` agent to get a detailed analysis
 - At the end you should inform the user `plan created: [relative file path]`
 - The file must have the following structure:
 
