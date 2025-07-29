@@ -10,10 +10,10 @@ description: "Describe command objective"
 ## Your task
 
 - [Main task description]
-- [Guidance of tasks]
+- [Steps to complete the task]
 - [Agent delegation if applicable]
 - [Output format specifications if needed]
 
   ```
-  [Expected output format]
+  [Output format]
   ```
