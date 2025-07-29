@@ -4,10 +4,14 @@ description: "Implement a requested feature or plan"
 
 ## Context
 
-- Request: $ARGUMENTS
+- Implementation plan: $ARGUMENTS
+- Agent delegation: Use `senior-developer` agent for each implementation phase
 
 ## Your task
 
-- Analize the user request
-- If the request is a plan file, it is IMPORTANT to mark each step as completed in the file
-- Coordinate with the `senior-developer` agent to implement the request STEP BY STEP
+- Parse the implementation plan to identify all phases/steps
+- Create a todo list to track progress through each phase
+- For each phase in the plan:
+  1. Delegate the specific phase implementation to the `senior-developer` agent
+  2. Verify the phase is completed successfully
+  3. Update the file to mark the phase as completed
