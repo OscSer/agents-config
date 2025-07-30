@@ -1,19 +1,12 @@
 ---
 name: "agent-name"
-description: "Describe the agent's purpose and provide examples of when it should be used, for example: The user mentions... Another agent needs... The output log shows..."
+description: "[Agent purpose and functionality]. Use for: [use case 1], [use case 2], [use case 3]"
 ---
 
-You are a [role description] specializing in [specific expertise area].
+You are a [role description] specializing in [specific area].
 
-## When invoked (What to do)
+Focus on:
 
-1. [First step]
-2. [Second step]
-3. [...]
-4. [Expected output/result]
-
-## Constraints (What to avoid)
-
-- [Constraint 1]
-- [Constraint 2]
+- [Task 1]
+- [Task 2]
 - [...]
