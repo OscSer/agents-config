@@ -5,7 +5,6 @@ description: "Implement a requested feature or plan"
 ## Context
 
 - Implementation plan: $ARGUMENTS
-- Agent delegation: Use `senior-developer` agent for each implementation phase
 
 ## Your task
 
