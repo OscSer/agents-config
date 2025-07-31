@@ -1,6 +1,6 @@
-# Claude Code - Personal Configuration
+# AI Agents Configuration
 
-This repository contains my personal configuration for Claude Code.
+This repository contains my personal configuration for AI agents.
 
 ## Installation
 
@@ -23,28 +23,37 @@ cd claude-code-config
 
 > ⚠️ **Important**: The installation script creates symbolic links to this repository. This means:
 >
-> - Any existing `~/.claude/agents/`, `~/.claude/commands/` directories and `~/.claude/settings.json` will be **replaced**
+> - Any existing `~/.claude/agents/`, `~/.claude/commands/`, `~/.claude/settings.json` and `~/.config/opencode/agents/` will be **replaced**
 > - If you want to preserve your existing configuration, you can copy the files manually instead of running the script
 
 ### Manual Installation
 
 ```bash
-# Copy custom agents
+# Copy Claude Code agents
 cp -r claude/agents/* ~/.claude/agents/
 
-# Copy custom commands
+# Copy Claude Code commands
 cp -r claude/commands/* ~/.claude/commands/
 
-# Copy main configuration
+# Copy Claude Code configuration
 cp claude/settings/settings.json ~/.claude/settings.json
+
+# Copy OpenCode agents
+cp -r opencode/agents/* ~/.config/opencode/agents/
 ```
 
 ## Structure
 
-- `claude/agents/` - Custom specialized agents
-- `claude/commands/` - Custom slash commands
-- `claude/settings/` - Main Claude Code configuration files
-- `claude/templates/` - Development templates for creating new agents and commands
+```
+├── claude/
+│   ├── agents/               # Claude Code specialized agents
+│   ├── commands/             # Claude Code slash commands
+│   ├── settings/             # Claude Code configuration files
+│   └── templates/            # Claude Code templates
+└── opencode/
+    ├── agents/               # OpenCode specialized agents
+    └── templates/            # OpenCode templates
+```
 
 ## Available Agents
 

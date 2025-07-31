@@ -9,13 +9,7 @@
       "WebSearch",
       "mcp__ide__getDiagnostics"
     ],
-    "deny": [
-      "NotebookRead",
-      "NotebookEdit"
-    ],
+    "deny": ["NotebookRead", "NotebookEdit"],
     "defaultMode": "acceptEdits"
-  },
-  "feedbackSurveyState": {
-    "lastShownTime": 1753923629158
   }
 }
