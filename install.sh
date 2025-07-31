@@ -43,26 +43,26 @@ echo "Claude Code & OpenCode Configuration Installation"
 echo "================================================="
 
 if [ ! -d "$HOME/.claude" ]; then
-    echo "Creating .claude directory..."
+    echo "Creating Claude Code directory..."
     mkdir -p "$HOME/.claude"
 fi
 
 if validate_source "claude/agents" && [ -d "claude/agents" ]; then
-    echo "Installing custom agents..."
+    echo "Installing Claude Code custom agents..."
     create_symlink "$REPO_DIR/claude/agents" "$HOME/.claude/agents"
-    echo "✓ Agents installed"
+    echo "✓ Claude Code agents installed"
 fi
 
 if validate_source "claude/commands" && [ -d "claude/commands" ]; then
-    echo "Installing custom commands..."
+    echo "Installing Claude Code custom commands..."
     create_symlink "$REPO_DIR/claude/commands" "$HOME/.claude/commands"
-    echo "✓ Commands installed"
+    echo "✓ Claude Code commands installed"
 fi
 
 if validate_source "claude/settings/settings.json" && [ -f "claude/settings/settings.json" ]; then
-    echo "Installing configuration..."
+    echo "Installing Claude Code configuration..."
     cp "$REPO_DIR/claude/settings/settings.json" "$HOME/.claude/settings.json"
-    echo "✓ Configuration installed"
+    echo "✓ Claude Code configuration installed"
 fi
 
 if [ ! -d "$HOME/.config/opencode" ]; then
@@ -76,8 +76,14 @@ if validate_source "opencode/agents" && [ -d "opencode/agents" ]; then
     echo "✓ OpenCode agents installed"
 fi
 
+if validate_source "opencode/settings/config.json" && [ -f "opencode/settings/config.json" ]; then
+    echo "Installing OpenCode configuration..."
+    cp "$REPO_DIR/opencode/settings/config.json" "$HOME/.config/opencode/config.json"
+    echo "✓ OpenCode configuration installed"
+fi
+
 echo ""
 echo "✅ Installation complete!"
 echo "Your Claude Code and OpenCode configurations have been installed successfully."
 echo "Claude Code agents and commands are available in ~/.claude/"
-echo "OpenCode agents are available in ~/.config/opencode/"
+echo "OpenCode configuration is available in ~/.config/opencode/"
