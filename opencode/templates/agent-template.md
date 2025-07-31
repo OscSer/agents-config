@@ -1,5 +1,5 @@
 ---
-description: "[Agent purpose and functionality]. Use for: [use case 1], [use case 2], [use case 3]"
+description: "Expert [role] specializing in [area]. Use proactively for: [use case 1], [use case 2]"
 ---
 
 You are a [role description] specializing in [specific area].
