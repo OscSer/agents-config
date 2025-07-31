@@ -30,21 +30,21 @@ cd claude-code-config
 
 ```bash
 # Copy custom agents
-cp -r agents/* ~/.claude/agents/
+cp -r claude/agents/* ~/.claude/agents/
 
 # Copy custom commands
-cp -r commands/* ~/.claude/commands/
+cp -r claude/commands/* ~/.claude/commands/
 
 # Copy main configuration
-cp settings/settings.json ~/.claude/settings.json
+cp claude/settings/settings.json ~/.claude/settings.json
 ```
 
 ## Structure
 
-- `agents/` - Custom specialized agents
-- `commands/` - Custom slash commands
-- `settings/` - Main Claude Code configuration files
-- `templates/` - Development templates for creating new agents and commands
+- `claude/agents/` - Custom specialized agents
+- `claude/commands/` - Custom slash commands
+- `claude/settings/` - Main Claude Code configuration files
+- `claude/templates/` - Development templates for creating new agents and commands
 
 ## Available Agents
 

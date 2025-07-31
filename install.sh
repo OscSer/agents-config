@@ -47,21 +47,21 @@ if [ ! -d "$HOME/.claude" ]; then
     mkdir -p "$HOME/.claude"
 fi
 
-if validate_source "agents" && [ -d "agents" ]; then
+if validate_source "claude/agents" && [ -d "claude/agents" ]; then
     echo "Installing custom agents..."
-    create_symlink "$REPO_DIR/agents" "$HOME/.claude/agents"
+    create_symlink "$REPO_DIR/claude/agents" "$HOME/.claude/agents"
     echo "✓ Agents installed"
 fi
 
-if validate_source "commands" && [ -d "commands" ]; then
+if validate_source "claude/commands" && [ -d "claude/commands" ]; then
     echo "Installing custom commands..."
-    create_symlink "$REPO_DIR/commands" "$HOME/.claude/commands"
+    create_symlink "$REPO_DIR/claude/commands" "$HOME/.claude/commands"
     echo "✓ Commands installed"
 fi
 
-if validate_source "settings/settings.json" && [ -f "settings/settings.json" ]; then
+if validate_source "claude/settings/settings.json" && [ -f "claude/settings/settings.json" ]; then
     echo "Installing configuration..."
-    create_symlink "$REPO_DIR/settings/settings.json" "$HOME/.claude/settings.json"
+    create_symlink "$REPO_DIR/claude/settings/settings.json" "$HOME/.claude/settings.json"
     echo "✓ Configuration installed"
 fi
 

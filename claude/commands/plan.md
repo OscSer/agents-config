@@ -27,13 +27,13 @@ description: "Create an implementation plan for a given request"
 
 - [] 1. First phase
 
-- First task
-- Second task
-- ...
+  - First task
+  - Second task
+  - ...
 
 - [] 2. Second phase
 
-- First task
-- Second task
-- ...
+  - First task
+  - Second task
+  - ...
 ```
