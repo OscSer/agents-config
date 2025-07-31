@@ -8,10 +8,10 @@ This repository contains my personal configuration for AI agents.
 
 ```bash
 # Clone this repository
-git clone https://github.com/OscSer/claude-code-config.git
+git clone https://github.com/OscSer/agents-config.git
 
 # Navigate to the folder
-cd claude-code-config
+cd agents-config
 ```
 
 ### Quick Installation
