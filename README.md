@@ -21,6 +21,11 @@ cd claude-code-config
 ./install.sh
 ```
 
+> ⚠️ **Important**: The installation script creates symbolic links to this repository. This means:
+>
+> - Any existing `~/.claude/agents/`, `~/.claude/commands/` directories and `~/.claude/settings.json` will be **replaced**
+> - If you want to preserve your existing configuration, you can copy the files manually instead of running the script
+
 ### Manual Installation
 
 ```bash

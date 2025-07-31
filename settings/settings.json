@@ -1,6 +1,6 @@
 {
+  "includeCoAuthoredBy": false,
   "permissions": {
-    "defaultMode": "acceptEdits",
     "allow": [
       "Bash",
       "Read",
@@ -9,7 +9,13 @@
       "WebSearch",
       "mcp__ide__getDiagnostics"
     ],
-    "deny": ["NotebookRead", "NotebookEdit"]
+    "deny": [
+      "NotebookRead",
+      "NotebookEdit"
+    ],
+    "defaultMode": "acceptEdits"
   },
-  "includeCoAuthoredBy": false
+  "feedbackSurveyState": {
+    "lastShownTime": 1753922625181
+  }
 }

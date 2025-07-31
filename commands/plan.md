@@ -12,6 +12,7 @@ description: "Create an implementation plan for a given request"
 - The file name should include the day, month and a title of maximum 3 words, example: `plan/31-07-refactor-auth.md`
 - Use the `software-architect` agent to get a detailed analysis
 - Reference specific files and line numbers in tasks when necessary (format: `relative_file_path:line_number`)
+- Update `plan/state.json` with plan metadata: `{"plans": {"31-07-feature.md": {"created": "ISO_DATE", "status": "created"}}}`
 - At the end you should inform the user `plan created: [relative file path]`
 - Expected file structure:
 

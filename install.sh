@@ -2,6 +2,43 @@
 
 set -e
 
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+create_symlink() {
+    local source="$1"
+    local target="$2"
+
+    if [ ! -e "$source" ]; then
+        echo "Warning: Source $source does not exist, skipping..."
+        return 1
+    fi
+
+    if [ -e "$target" ] || [ -L "$target" ]; then
+        rm -rf "$target"
+    fi
+
+    if ln -sf "$source" "$target" 2>/dev/null; then
+        return 0
+    else
+        echo "Warning: Symbolic link failed, falling back to copy..."
+        if [ -d "$source" ]; then
+            cp -r "$source" "$target"
+        else
+            cp "$source" "$target"
+        fi
+        return 0
+    fi
+}
+
+validate_source() {
+    local path="$1"
+    if [ ! -e "$REPO_DIR/$path" ]; then
+        echo "Warning: $path not found in repository, skipping..."
+        return 1
+    fi
+    return 0
+}
+
 echo "Claude Code Configuration Installation"
 echo "======================================"
 
@@ -10,23 +47,21 @@ if [ ! -d "$HOME/.claude" ]; then
     mkdir -p "$HOME/.claude"
 fi
 
-if [ -d "agents" ]; then
+if validate_source "agents" && [ -d "agents" ]; then
     echo "Installing custom agents..."
-    mkdir -p "$HOME/.claude/agents"
-    cp -r agents/* "$HOME/.claude/agents/"
+    create_symlink "$REPO_DIR/agents" "$HOME/.claude/agents"
     echo "✓ Agents installed"
 fi
 
-if [ -d "commands" ]; then
+if validate_source "commands" && [ -d "commands" ]; then
     echo "Installing custom commands..."
-    mkdir -p "$HOME/.claude/commands"
-    cp -r commands/* "$HOME/.claude/commands/"
+    create_symlink "$REPO_DIR/commands" "$HOME/.claude/commands"
     echo "✓ Commands installed"
 fi
 
-if [ -f "settings/settings.json" ]; then
+if validate_source "settings/settings.json" && [ -f "settings/settings.json" ]; then
     echo "Installing configuration..."
-    cp settings/settings.json "$HOME/.claude/settings.json"
+    create_symlink "$REPO_DIR/settings/settings.json" "$HOME/.claude/settings.json"
     echo "✓ Configuration installed"
 fi
 
