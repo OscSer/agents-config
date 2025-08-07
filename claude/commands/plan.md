@@ -34,4 +34,13 @@ description: "Create an implementation plan for a given request"
   - First task
   - Second task
   - ...
+
+- [] ...
+
+- [] Validation tasks
+
+  - Check typecheck
+  - Check linter
+  - Check tests
+  - ...
 ```
