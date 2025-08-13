@@ -65,6 +65,12 @@ if validate_source "claude/settings/settings.json" && [ -f "claude/settings/sett
     echo "✓ Claude Code configuration installed"
 fi
 
+if validate_source "common/AGENTS.md" && [ -f "common/AGENTS.md" ]; then
+    echo "Installing shared AGENTS.md for Claude Code..."
+    create_symlink "$REPO_DIR/common/AGENTS.md" "$HOME/.claude/AGENTS.md"
+    echo "✓ Claude Code shared AGENTS.md installed"
+fi
+
 if [ ! -d "$HOME/.config/opencode" ]; then
     echo "Creating OpenCode directory..."
     mkdir -p "$HOME/.config/opencode"
@@ -80,6 +86,12 @@ if validate_source "opencode/settings/config.json" && [ -f "opencode/settings/co
     echo "Installing OpenCode configuration..."
     cp "$REPO_DIR/opencode/settings/config.json" "$HOME/.config/opencode/config.json"
     echo "✓ OpenCode configuration installed"
+fi
+
+if validate_source "common/AGENTS.md" && [ -f "common/AGENTS.md" ]; then
+    echo "Installing shared AGENTS.md for OpenCode..."
+    create_symlink "$REPO_DIR/common/AGENTS.md" "$HOME/.config/opencode/AGENTS.md"
+    echo "✓ OpenCode shared AGENTS.md installed"
 fi
 
 echo ""

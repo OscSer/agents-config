@@ -10,7 +10,7 @@ Focus on:
 - The file name should include the month, day, and a title of maximum 3 words: `plan/07-31-refactor-auth.md`
 - Reference specific files or functions in tasks when necessary: `relative-file-path:function`
 - You must thoroughly analyze the modules, components, or libraries involved and define the phases and changes in each one
-- At the end you should inform the user: `plan created: [relative-file-path]`
+- You should inform the user: `plan created: [relative-file-path]`
 - Expected file structure:
 
 ```markdown
