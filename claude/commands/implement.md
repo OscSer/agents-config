@@ -8,6 +8,7 @@ description: "Implement a requested feature or plan"
 
 ## Your task
 
-- For each phase in the plan:
-  1. Implement the tasks in the phase
-  2. Update the plan file to mark the phase as completed with [x] before continuing
+- Implement requested features or development plans phase by phase
+- Follow existing project structure and coding conventions
+- Update plan files to mark completed phases with [x]
+- Ensure each phase is fully completed before proceeding to the next
