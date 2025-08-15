@@ -39,6 +39,54 @@ validate_source() {
     return 0
 }
 
+update_claude_mcp_config() {
+    local mcp_source="$REPO_DIR/claude/.mcp.json"
+    local claude_config="$HOME/.claude.json"
+    
+    if [ ! -f "$mcp_source" ]; then
+        echo "Warning: claude/.mcp.json not found, skipping MCP configuration..."
+        return 1
+    fi
+    
+    echo "Updating Claude MCP configuration..."
+    
+    python3 -c "
+import json
+import os
+import sys
+
+mcp_source = '$mcp_source'
+claude_config = '$claude_config'
+
+try:
+    with open(mcp_source, 'r') as f:
+        mcp_data = json.load(f)
+    
+    if 'mcpServers' not in mcp_data:
+        print('Error: mcpServers not found in claude/.mcp.json')
+        sys.exit(1)
+    
+    if os.path.exists(claude_config):
+        with open(claude_config, 'r') as f:
+            claude_data = json.load(f)
+    else:
+        claude_data = {}
+    
+    claude_data['mcpServers'] = mcp_data['mcpServers']
+    
+    with open(claude_config, 'w') as f:
+        json.dump(claude_data, f, indent=2)
+    
+    print('✓ MCP configuration updated successfully')
+    
+except Exception as e:
+    print(f'Error updating MCP configuration: {e}')
+    sys.exit(1)
+"
+    
+    return $?
+}
+
 echo "Claude Code & OpenCode Configuration Installation"
 echo "================================================="
 
@@ -69,6 +117,10 @@ if validate_source "common/AGENTS.md" && [ -f "common/AGENTS.md" ]; then
     echo "Installing shared AGENTS.md for Claude Code..."
     create_symlink "$REPO_DIR/common/AGENTS.md" "$HOME/.claude/AGENTS.md"
     echo "✓ Claude Code shared AGENTS.md installed"
+fi
+
+if validate_source "claude/.mcp.json" && [ -f "claude/.mcp.json" ]; then
+    update_claude_mcp_config
 fi
 
 if [ ! -d "$HOME/.config/opencode" ]; then

@@ -1,5 +1,6 @@
 {
   "includeCoAuthoredBy": false,
+  "outputStyle": "Explanatory",
   "env": {
     "DISABLE_BUG_COMMAND": "1",
     "DISABLE_ERROR_REPORTING": "1",
@@ -9,6 +10,7 @@
     "FORCE_AUTO_BACKGROUND_TASKS": "1"
   },
   "permissions": {
+    "defaultMode": "acceptEdits",
     "allow": [
       "Bash",
       "Read",
@@ -16,12 +18,11 @@
       "WebFetch",
       "WebSearch",
       "mcp__ide__getDiagnostics",
+      "mcp__sequential-thinking__sequentialthinking",
       "mcp__context7__resolve-library-id",
       "mcp__context7__get-library-docs",
-      "mcp__sequential-thinking__sequentialthinking",
       "mcp__serena__list_dir",
       "mcp__serena__find_file",
-      "mcp__serena__search_for_pattern",
       "mcp__serena__restart_language_server",
       "mcp__serena__get_symbols_overview",
       "mcp__serena__find_symbol",
@@ -39,7 +40,11 @@
       "mcp__serena__think_about_task_adherence",
       "mcp__serena__think_about_whether_you_are_done"
     ],
-    "deny": ["NotebookRead", "NotebookEdit", "mcp__ide__executeCode"],
-    "defaultMode": "acceptEdits"
+    "deny": [
+      "NotebookRead",
+      "NotebookEdit",
+      "mcp__ide__executeCode",
+      "mcp__serena__search_for_pattern"
+    ]
   }
 }
