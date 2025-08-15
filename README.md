@@ -21,12 +21,11 @@ cd agents-config
 ./install.sh
 ```
 
-> ⚠️ **Important**: The installation script creates symbolic links to this repository. This means:
->
-> - Any existing `~/.claude/agents/`, `~/.claude/commands/`, `~/.claude/settings.json` and `~/.config/opencode/agents/` will be **replaced**
-> - If you want to preserve your existing configuration, you can copy the files manually instead of running the script
+> ⚠️ **Important**: The installation script creates symbolic links to this repository. This means that any existing configuration files will be **replaced**. If you want to preserve your existing configuration, you can copy the files manually instead of running the script.
 
 ### Manual Installation
+
+#### Claude Code
 
 ```bash
 # Copy Claude Code agents
@@ -38,8 +37,23 @@ cp -r claude/commands/* ~/.claude/commands/
 # Copy Claude Code configuration
 cp claude/settings.json ~/.claude/settings.json
 
+# Copy shared AGENTS.md
+cp common/AGENTS.md ~/.claude/AGENTS.md
+```
+
+Copy the `claude/.mcp.json` file to your project, or manually add the MCP servers to your `~/.claude.json` file.
+
+#### OpenCode
+
+```bash
 # Copy OpenCode agents
 cp -r opencode/agents/* ~/.config/opencode/agents/
+
+# Copy OpenCode configuration
+cp opencode/settings/config.json ~/.config/opencode/config.json
+
+# Copy shared AGENTS.md
+cp common/AGENTS.md ~/.config/opencode/AGENTS.md
 ```
 
 ## Structure
@@ -48,23 +62,18 @@ cp -r opencode/agents/* ~/.config/opencode/agents/
 ├── claude/
 │   ├── agents/               # Claude Code specialized agents
 │   ├── commands/             # Claude Code slash commands
-│   ├── settings/             # Claude Code configuration files
-│   └── templates/            # Claude Code templates
-└── opencode/
-    ├── agents/               # OpenCode specialized agents
-    └── templates/            # OpenCode templates
+│   ├── templates/            # Claude Code templates
+│   ├── settings.json         # Claude Code configuration
+│   └── .mcp.json             # Claude Code MCP servers
+├── opencode/
+│   ├── agents/               # OpenCode specialized agents
+│   ├── templates/            # OpenCode templates
+│   └── settings/
+│       └── config.json       # OpenCode configuration
+├── common/
+│   └── AGENTS.md             # Shared agent instructions
+└── install.sh                # Automatic installation script
 ```
-
-## Available Agents
-
-- **software-architect** - Designs software architecture and creates comprehensive system blueprints
-- **senior-developer** - Implements complex features and diagnoses technical issues with comprehensive expertise
-
-## Available Commands
-
-- **/plan** - Creates implementation plans using the software-architect agent
-- **/implement** - Executes implementation using the senior-developer agent
-- **/commit** - Creates conventional commits with proper formatting
 
 ## Workflow
 

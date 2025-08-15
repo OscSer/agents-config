@@ -1,6 +1,5 @@
 {
   "includeCoAuthoredBy": false,
-  "outputStyle": "Explanatory",
   "env": {
     "DISABLE_BUG_COMMAND": "1",
     "DISABLE_ERROR_REPORTING": "1",
