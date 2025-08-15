@@ -18,7 +18,7 @@ cd agents-config
 
 ```bash
 # Run the installation script
-./install.sh
+python3 install.py
 ```
 
 > ⚠️ **Important**: The installation script creates symbolic links to this repository. This means that any existing configuration files will be **replaced**. If you want to preserve your existing configuration, you can copy the files manually instead of running the script.
@@ -72,7 +72,7 @@ cp common/AGENTS.md ~/.config/opencode/AGENTS.md
 │       └── config.json       # OpenCode configuration
 ├── common/
 │   └── AGENTS.md             # Shared agent instructions
-└── install.sh                # Automatic installation script
+└── install.py                # Automatic installation script
 ```
 
 ## Workflow
