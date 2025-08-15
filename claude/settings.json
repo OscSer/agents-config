@@ -38,13 +38,9 @@
       "mcp__serena__onboarding",
       "mcp__serena__think_about_collected_information",
       "mcp__serena__think_about_task_adherence",
-      "mcp__serena__think_about_whether_you_are_done"
-    ],
-    "deny": [
-      "NotebookRead",
-      "NotebookEdit",
-      "mcp__ide__executeCode",
+      "mcp__serena__think_about_whether_you_are_done",
       "mcp__serena__search_for_pattern"
-    ]
+    ],
+    "deny": ["NotebookRead", "NotebookEdit", "mcp__ide__executeCode"]
   }
 }
