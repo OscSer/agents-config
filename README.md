@@ -36,7 +36,7 @@ cp -r claude/agents/* ~/.claude/agents/
 cp -r claude/commands/* ~/.claude/commands/
 
 # Copy Claude Code configuration
-cp claude/settings/settings.json ~/.claude/settings.json
+cp claude/settings.json ~/.claude/settings.json
 
 # Copy OpenCode agents
 cp -r opencode/agents/* ~/.config/opencode/agents/

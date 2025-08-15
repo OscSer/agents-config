@@ -107,9 +107,9 @@ if validate_source "claude/commands" && [ -d "claude/commands" ]; then
     echo "✓ Claude Code commands installed"
 fi
 
-if validate_source "claude/settings/settings.json" && [ -f "claude/settings/settings.json" ]; then
+if validate_source "claude/settings.json" && [ -f "claude/settings.json" ]; then
     echo "Installing Claude Code configuration..."
-    cp "$REPO_DIR/claude/settings/settings.json" "$HOME/.claude/settings.json"
+    cp "$REPO_DIR/claude/settings.json" "$HOME/.claude/settings.json"
     echo "✓ Claude Code configuration installed"
 fi
 
