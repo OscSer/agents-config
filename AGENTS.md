@@ -1,20 +1,28 @@
-# Agents Templates
+# Agents Instructions
 
-Personal configuration with custom agents, commands, and settings.
+Personal configuration for AI agents (Claude Code and OpenCode) with custom agents, commands, and settings.
 
-## Templates
+## Project Structure
 
-Available templates in `claude/templates/` and `opencode/templates/` directories:
+- `claude/` - Claude Code configuration (agents, commands, settings, templates)
+- `opencode/` - OpenCode configuration (agents, settings, templates)
+- `common/` - Shared instructions (AGENTS.md)
+- `install.py` - Automated installation with symbolic links
 
-- `agent-template.md` - For creating new agents
-- `command-template.md` - For creating new commands
+## Workflow
 
-## Adding Agents
+1. **Plan**: `/plan` → Creates plan using software-architect agent
+2. **Implement**: `/implement` → Executes with senior-developer agent
+3. **Commit**: `/commit` → Creates conventional commits
 
-1. Create file in `claude/agents/` and `opencode/agents/` using each template
-2. Use consistent naming conventions for files and directories
+## MCP Tools Available
 
-## Adding Commands (Only Claude Code)
+- **serena**: Semantic code analysis and editing
+- **context7**: Up-to-date library documentation
+- **sequential-thinking**: Decision-making assistance
 
-1. Create file in `claude/commands/` using template
-2. Include proper agent delegation
+## Templates Usage
+
+- `claude/templates/agent-template.md` - For new Claude Code agents
+- `claude/templates/command-template.md` - For new Claude Code commands
+- `opencode/templates/agent-template.md` - For new OpenCode agents
