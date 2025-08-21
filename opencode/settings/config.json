@@ -20,21 +20,6 @@
       "enabled": true,
       "type": "remote",
       "url": "https://mcp.context7.com/mcp"
-    },
-    "serena": {
-      "enabled": true,
-      "type": "local",
-      "command": [
-        "uvx",
-        "--from",
-        "git+https://github.com/oraios/serena",
-        "serena",
-        "start-mcp-server",
-        "--context",
-        "ide-assistant",
-        "--project",
-        "."
-      ]
     }
   }
 }

@@ -8,6 +8,10 @@
     "ENABLE_BACKGROUND_TASKS": "1",
     "FORCE_AUTO_BACKGROUND_TASKS": "1"
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bunx -y ccstatusline@latest"
+  },
   "permissions": {
     "defaultMode": "acceptEdits",
     "allow": [
