@@ -1,6 +1,7 @@
 {
   "includeCoAuthoredBy": false,
   "env": {
+    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1",
     "DISABLE_BUG_COMMAND": "1",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
@@ -10,7 +11,8 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "bunx -y ccstatusline@latest"
+    "command": "bunx -y ccstatusline@latest",
+    "padding": 0
   },
   "permissions": {
     "defaultMode": "acceptEdits",
