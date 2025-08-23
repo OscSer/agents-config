@@ -13,3 +13,4 @@ Personal configuration for AI agents (Claude Code and OpenCode) with custom agen
 
 - Follow the templates in `claude/` and `opencode/`
 - Keep install script and readme up to date
+- Templates directories are only for development purposes, they are not included in the installation process
