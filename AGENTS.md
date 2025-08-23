@@ -6,7 +6,7 @@ Personal configuration for AI agents (Claude Code and OpenCode) with custom agen
 
 - `claude/` - Claude Code configuration
 - `opencode/` - OpenCode configuration
-- `common/` - Shared instructions
+- `common/` - Common configuration
 - `install.py` - Automated installation with symbolic links
 
 ## Development

@@ -29,7 +29,7 @@ python3 install.py
 
 ```bash
 # Copy Claude Code commands
-cp -r claude/commands/* ~/.claude/commands/
+cp -r common/commands/* ~/.claude/commands/
 
 # Copy Claude Code configuration
 cp claude/settings.json ~/.claude/settings.json
@@ -44,7 +44,7 @@ Copy the `claude/.mcp.json` file to your project, or manually add the MCP server
 
 ```bash
 # Copy OpenCode commands
-cp -r opencode/commands/* ~/.config/opencode/command/
+cp -r common/commands/* ~/.config/opencode/command/
 
 # Copy OpenCode configuration
 cp opencode/settings/config.json ~/.config/opencode/config.json
@@ -57,16 +57,14 @@ cp common/AGENTS.md ~/.config/opencode/AGENTS.md
 
 ```
 ├── claude/
-│   ├── commands/             # Claude Code slash commands
-│   ├── templates/            # Claude Code templates
 │   ├── settings.json         # Claude Code configuration
 │   └── .mcp.json             # Claude Code MCP servers
 ├── opencode/
-│   ├── commands/             # OpenCode slash commands
-│   ├── templates/            # OpenCode templates
 │   └── settings/
 │       └── config.json       # OpenCode configuration
 ├── common/
+│   ├── commands/             # Shared slash commands for both agents
+│   ├── templates/            # Shared templates for development
 │   └── AGENTS.md             # Shared agent instructions
 └── install.py                # Automatic installation script
 ```
