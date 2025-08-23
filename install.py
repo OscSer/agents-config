@@ -106,11 +106,6 @@ class ConfigInstaller:
             self.claude_dir.mkdir(parents=True, exist_ok=True)
             success = True
 
-            # Install agents
-            if self.validate_source("claude/agents") and (self.repo_dir / "claude" / "agents").is_dir():
-                print("Installing Claude Code custom agents...")
-                if self.create_symlink(self.repo_dir / "claude" / "agents", self.claude_dir / "agents"):
-                    print("✓ Claude Code agents installed")
 
             # Install commands
             if self.validate_source("claude/commands") and (self.repo_dir / "claude" / "commands").is_dir():
@@ -148,11 +143,6 @@ class ConfigInstaller:
             self.opencode_dir.mkdir(parents=True, exist_ok=True)
             success = True
 
-            # Install agents
-            if self.validate_source("opencode/agents") and (self.repo_dir / "opencode" / "agents").is_dir():
-                print("Installing OpenCode agents...")
-                if self.create_symlink(self.repo_dir / "opencode" / "agents", self.opencode_dir / "agent"):
-                    print("✓ OpenCode agents installed")
 
             # Install configuration
             if self.validate_source("opencode/settings/config.json") and (self.repo_dir / "opencode" / "settings" / "config.json").is_file():
