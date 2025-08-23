@@ -9,16 +9,19 @@ from typing import Optional
 
 class InstallError(Exception):
     """Base exception for installation errors"""
+
     pass
 
 
 class SymlinkError(InstallError):
     """Exception raised when symlink operations fail"""
+
     pass
 
 
 class ConfigError(InstallError):
     """Exception raised when configuration operations fail"""
+
     pass
 
 
@@ -62,7 +65,9 @@ class ConfigInstaller:
                     shutil.copy2(source, target)
                 return True
             except Exception as copy_error:
-                raise SymlinkError(f"Failed to create symlink or copy {source} to {target}: {copy_error}")
+                raise SymlinkError(
+                    f"Failed to create symlink or copy {source} to {target}: {copy_error}"
+                )
 
     def update_claude_mcp_config(self) -> bool:
         """Update Claude MCP configuration"""
@@ -76,27 +81,27 @@ class ConfigInstaller:
         print("Updating Claude MCP configuration...")
 
         try:
-            with open(mcp_source, 'r') as f:
+            with open(mcp_source, "r") as f:
                 mcp_data = json.load(f)
 
-            if 'mcpServers' not in mcp_data:
-                raise ConfigError('mcpServers not found in claude/.mcp.json')
+            if "mcpServers" not in mcp_data:
+                raise ConfigError("mcpServers not found in claude/.mcp.json")
 
             claude_data = {}
             if claude_config.exists():
-                with open(claude_config, 'r') as f:
+                with open(claude_config, "r") as f:
                     claude_data = json.load(f)
 
-            claude_data['mcpServers'] = mcp_data['mcpServers']
+            claude_data["mcpServers"] = mcp_data["mcpServers"]
 
-            with open(claude_config, 'w') as f:
+            with open(claude_config, "w") as f:
                 json.dump(claude_data, f, indent=2)
 
-            print('✓ MCP configuration updated successfully')
+            print("✓ MCP configuration updated successfully")
             return True
 
         except (json.JSONDecodeError, OSError) as e:
-            raise ConfigError(f'Failed to update MCP configuration: {e}')
+            raise ConfigError(f"Failed to update MCP configuration: {e}")
 
     def install_claude_code(self) -> bool:
         """Install Claude Code configuration"""
@@ -106,27 +111,46 @@ class ConfigInstaller:
             self.claude_dir.mkdir(parents=True, exist_ok=True)
             success = True
 
-
             # Install commands
-            if self.validate_source("claude/commands") and (self.repo_dir / "claude" / "commands").is_dir():
+            if (
+                self.validate_source("claude/commands")
+                and (self.repo_dir / "claude" / "commands").is_dir()
+            ):
                 print("Installing Claude Code custom commands...")
-                if self.create_symlink(self.repo_dir / "claude" / "commands", self.claude_dir / "commands"):
+                if self.create_symlink(
+                    self.repo_dir / "claude" / "commands", self.claude_dir / "commands"
+                ):
                     print("✓ Claude Code commands installed")
 
             # Install settings
-            if self.validate_source("claude/settings.json") and (self.repo_dir / "claude" / "settings.json").is_file():
+            if (
+                self.validate_source("claude/settings.json")
+                and (self.repo_dir / "claude" / "settings.json").is_file()
+            ):
                 print("Installing Claude Code configuration...")
-                shutil.copy2(self.repo_dir / "claude" / "settings.json", self.claude_dir / "settings.json")
+                shutil.copy2(
+                    self.repo_dir / "claude" / "settings.json",
+                    self.claude_dir / "settings.json",
+                )
                 print("✓ Claude Code configuration installed")
 
             # Install shared AGENTS.md
-            if self.validate_source("common/AGENTS.md") and (self.repo_dir / "common" / "AGENTS.md").is_file():
+            if (
+                self.validate_source("common/AGENTS.md")
+                and (self.repo_dir / "common" / "AGENTS.md").is_file()
+            ):
                 print("Installing shared AGENTS.md for Claude Code...")
-                if self.create_symlink(self.repo_dir / "common" / "AGENTS.md", self.claude_dir / "AGENTS.md"):
+                if self.create_symlink(
+                    self.repo_dir / "common" / "AGENTS.md",
+                    self.claude_dir / "AGENTS.md",
+                ):
                     print("✓ Claude Code shared AGENTS.md installed")
 
             # Update MCP configuration
-            if self.validate_source("claude/.mcp.json") and (self.repo_dir / "claude" / ".mcp.json").is_file():
+            if (
+                self.validate_source("claude/.mcp.json")
+                and (self.repo_dir / "claude" / ".mcp.json").is_file()
+            ):
                 self.update_claude_mcp_config()
 
             return success
@@ -143,17 +167,40 @@ class ConfigInstaller:
             self.opencode_dir.mkdir(parents=True, exist_ok=True)
             success = True
 
+            # Install commands
+            if (
+                self.validate_source("opencode/commands")
+                and (self.repo_dir / "opencode" / "commands").is_dir()
+            ):
+                print("Installing OpenCode custom commands...")
+                if self.create_symlink(
+                    self.repo_dir / "opencode" / "commands",
+                    self.opencode_dir / "command",
+                ):
+                    print("✓ OpenCode commands installed")
 
             # Install configuration
-            if self.validate_source("opencode/settings/config.json") and (self.repo_dir / "opencode" / "settings" / "config.json").is_file():
+            if (
+                self.validate_source("opencode/settings/config.json")
+                and (self.repo_dir / "opencode" / "settings" / "config.json").is_file()
+            ):
                 print("Installing OpenCode configuration...")
-                shutil.copy2(self.repo_dir / "opencode" / "settings" / "config.json", self.opencode_dir / "config.json")
+                shutil.copy2(
+                    self.repo_dir / "opencode" / "settings" / "config.json",
+                    self.opencode_dir / "config.json",
+                )
                 print("✓ OpenCode configuration installed")
 
             # Install shared AGENTS.md
-            if self.validate_source("common/AGENTS.md") and (self.repo_dir / "common" / "AGENTS.md").is_file():
+            if (
+                self.validate_source("common/AGENTS.md")
+                and (self.repo_dir / "common" / "AGENTS.md").is_file()
+            ):
                 print("Installing shared AGENTS.md for OpenCode...")
-                if self.create_symlink(self.repo_dir / "common" / "AGENTS.md", self.opencode_dir / "AGENTS.md"):
+                if self.create_symlink(
+                    self.repo_dir / "common" / "AGENTS.md",
+                    self.opencode_dir / "AGENTS.md",
+                ):
                     print("✓ OpenCode shared AGENTS.md installed")
 
             return success
@@ -178,7 +225,9 @@ class ConfigInstaller:
             return True
         else:
             print("")
-            print("⚠️ Installation completed with some errors. Check the output above for details.")
+            print(
+                "⚠️ Installation completed with some errors. Check the output above for details."
+            )
             return False
 
 

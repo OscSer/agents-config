@@ -43,6 +43,9 @@ Copy the `claude/.mcp.json` file to your project, or manually add the MCP server
 #### OpenCode
 
 ```bash
+# Copy OpenCode commands
+cp -r opencode/commands/* ~/.config/opencode/command/
+
 # Copy OpenCode configuration
 cp opencode/settings/config.json ~/.config/opencode/config.json
 
@@ -59,6 +62,8 @@ cp common/AGENTS.md ~/.config/opencode/AGENTS.md
 │   ├── settings.json         # Claude Code configuration
 │   └── .mcp.json             # Claude Code MCP servers
 ├── opencode/
+│   ├── commands/             # OpenCode slash commands
+│   ├── templates/            # OpenCode templates
 │   └── settings/
 │       └── config.json       # OpenCode configuration
 ├── common/
