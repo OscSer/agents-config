@@ -15,7 +15,7 @@
     "padding": 0
   },
   "permissions": {
-    "defaultMode": "acceptEdits",
+    "defaultMode": "plan",
     "allow": [
       "Bash",
       "Read",
