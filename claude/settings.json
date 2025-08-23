@@ -1,5 +1,4 @@
 {
-  "includeCoAuthoredBy": false,
   "env": {
     "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1",
     "DISABLE_BUG_COMMAND": "1",
@@ -9,13 +8,8 @@
     "ENABLE_BACKGROUND_TASKS": "1",
     "FORCE_AUTO_BACKGROUND_TASKS": "1"
   },
-  "statusLine": {
-    "type": "command",
-    "command": "bunx -y ccstatusline@latest",
-    "padding": 0
-  },
+  "includeCoAuthoredBy": false,
   "permissions": {
-    "defaultMode": "plan",
     "allow": [
       "Bash",
       "Read",
@@ -46,6 +40,16 @@
       "mcp__serena__think_about_whether_you_are_done",
       "mcp__serena__search_for_pattern"
     ],
-    "deny": ["NotebookRead", "NotebookEdit", "mcp__ide__executeCode"]
+    "defaultMode": "plan",
+    "deny": [
+      "NotebookRead",
+      "NotebookEdit",
+      "mcp__ide__executeCode"
+    ]
+  },
+  "statusLine": {
+    "command": "bunx -y ccstatusline@latest",
+    "padding": 0,
+    "type": "command"
   }
 }
