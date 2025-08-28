@@ -59,7 +59,7 @@ class ConfigInstaller:
         },
         "opencode": {
             "label": "OpenCode",
-            "settings_source": "settings/opencode.json",
+            "settings_source": "opencode.json",
             "settings_target": "opencode.json",
             "commands_target": "command",
             "rules_source": "rules/AGENTS.md",

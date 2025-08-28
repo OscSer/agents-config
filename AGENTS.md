@@ -1,8 +1,8 @@
-# Agents Instructions
+# Project Instructions
 
 Personal configuration for AI agents.
 
-## Project Structure
+## Structure
 
 - `claude/` - Claude Code configuration
 - `gemini/` - Gemini CLI configuration
@@ -11,21 +11,22 @@ Personal configuration for AI agents.
 
 ## Development
 
-NEVER use context7, ALWAYS consult the appropriate documentation to create, modify, or expand logic in each directory:
+- When making any changes, you must check whether install.py needs to be updated
+- NEVER use context7, ALWAYS consult the appropriate documentation for each agent:
 
-**Claude Code**
+**Claude Code docs**
 
 - [Settings](https://docs.anthropic.com/en/docs/claude-code/settings)
 - [Commands](https://docs.anthropic.com/en/docs/claude-code/slash-commands)
 - [MCP](https://docs.anthropic.com/en/docs/claude-code/mcp)
 - [Rules](https://docs.anthropic.com/en/docs/claude-code/memory)
 
-**Gemini**
+**Gemini docs**
 
 - [Settings & MCP & Rules](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md)
 - [Commands](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/commands.md#custom-commands)
 
-**Opencode**
+**Opencode docs**
 
 - [Settings](https://opencode.ai/docs/config/)
 - [Commands](https://opencode.ai/docs/commands/)
