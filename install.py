@@ -13,8 +13,8 @@ class InstallError(Exception):
     pass
 
 
-class SymlinkError(InstallError):
-    """Exception raised when symlink operations fail"""
+class CopyError(InstallError):
+    """Exception raised when copy operations fail"""
 
     pass
 
@@ -82,10 +82,10 @@ class ConfigInstaller:
             return False
         return True
 
-    def create_symlink(self, source: Path, target: Path) -> bool:
-        """Create symlink with fallback to copy"""
+    def copy_file_or_dir(self, source: Path, target: Path) -> bool:
+        """Copy file or directory to target location"""
         if not source.exists():
-            raise SymlinkError(f"Source {source} does not exist")
+            raise CopyError(f"Source {source} does not exist")
 
         try:
             if target.exists() or target.is_symlink():
@@ -94,21 +94,16 @@ class ConfigInstaller:
                 else:
                     target.unlink()
 
-            target.symlink_to(source)
+            if source.is_dir():
+                shutil.copytree(source, target)
+            else:
+                shutil.copy2(source, target)
             return True
-
-        except OSError as e:
-            print(f"Warning: Symbolic link failed ({e}), falling back to copy...")
-            try:
-                if source.is_dir():
-                    shutil.copytree(source, target)
-                else:
-                    shutil.copy2(source, target)
-                return True
-            except Exception as copy_error:
-                raise SymlinkError(
-                    f"Failed to create symlink or copy {source} to {target}: {copy_error}"
-                )
+            
+        except Exception as copy_error:
+            raise CopyError(
+                f"Failed to copy {source} to {target}: {copy_error}"
+            )
 
     def update_claude_mcp_config(self) -> bool:
         """Update Claude MCP configuration"""
@@ -166,7 +161,7 @@ class ConfigInstaller:
             commands_source = self.repo_dir / agent_name / "commands"
             if self.validate_source(f"{agent_name}/commands") and commands_source.is_dir():
                 print(f"Installing custom commands for {agent_label}...")
-                if self.create_symlink(commands_source, target_dir / config["commands_target"]):
+                if self.copy_file_or_dir(commands_source, target_dir / config["commands_target"]):
                     print(f"✓ {agent_label} commands installed")
 
             # Install settings
@@ -184,7 +179,7 @@ class ConfigInstaller:
             if self.validate_source(config["rules_source"]) and rules_source_path.is_file():
                 doc_name = config["rules_target"]
                 print(f"Installing shared {doc_name} for {agent_label}...")
-                if self.create_symlink(
+                if self.copy_file_or_dir(
                     rules_source_path,
                     target_dir / doc_name,
                 ):
@@ -200,7 +195,7 @@ class ConfigInstaller:
 
             return True
 
-        except (SymlinkError, ConfigError, OSError) as e:
+        except (CopyError, ConfigError, OSError) as e:
             print(f"Error installing {agent_label}: {e}")
             return False
 
