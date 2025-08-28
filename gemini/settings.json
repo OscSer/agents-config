@@ -11,10 +11,27 @@
     "WebFetchTool",
     "WebSearchTool",
     "MemoryTool",
-    "ShellTool",
-    "ShellTool(git diff)"
+    "ShellTool"
   ],
-  "excludeTools": ["ShellTool(git commit)", "ShellTool(git push)"],
+  "excludeTools": [
+    "ShellTool(git commit)",
+    "ShellTool(git push)",
+    "ShellTool(git pull)",
+    "ShellTool(git fetch)",
+    "ShellTool(git merge)",
+    "ShellTool(git rebase)",
+    "ShellTool(git reset)",
+    "ShellTool(git checkout)",
+    "ShellTool(git switch)",
+    "ShellTool(git cherry-pick)",
+    "ShellTool(git revert)",
+    "ShellTool(git tag)",
+    "ShellTool(git remote)",
+    "ShellTool(git clone)",
+    "ShellTool(git init)",
+    "ShellTool(git rm)",
+    "ShellTool(git mv)"
+  ],
   "mcpServers": {
     "nx-mcp": {
       "command": "npx",

@@ -241,17 +241,17 @@ class ConfigInstaller:
                 )
                 print("✓ Gemini CLI configuration installed")
 
-            # Install shared AGENTS.md
+            # Install shared GEMINI.md (context file)
             if (
                 self.validate_source("common/AGENTS.md")
                 and (self.repo_dir / "common" / "AGENTS.md").is_file()
             ):
-                print("Installing shared AGENTS.md for Gemini CLI...")
+                print("Installing shared GEMINI.md for Gemini CLI...")
                 if self.create_symlink(
                     self.repo_dir / "common" / "AGENTS.md",
-                    self.gemini_dir / "AGENTS.md",
+                    self.gemini_dir / "GEMINI.md",
                 ):
-                    print("✓ Gemini CLI shared AGENTS.md installed")
+                    print("✓ Gemini CLI shared GEMINI.md installed")
 
             return success
 
