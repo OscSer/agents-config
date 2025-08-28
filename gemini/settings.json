@@ -1,0 +1,39 @@
+{
+  "autoAccept": true,
+  "allowedTools": [
+    "LSTool",
+    "ReadFileTool",
+    "WriteFileTool",
+    "GrepTool",
+    "GlobTool",
+    "EditTool",
+    "ReadManyFilesTool",
+    "ShellTool",
+    "WebFetchTool",
+    "WebSearchTool",
+    "MemoryTool"
+  ],
+  "excludeTools": ["ShellTool(git commit)", "ShellTool(git push)"],
+  "mcpServers": {
+    "nx-mcp": {
+      "command": "npx",
+      "args": ["nx-mcp@latest", "."]
+    },
+    "context7": {
+      "httpUrl": "https://mcp.context7.com/mcp"
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    }
+  },
+  "telemetry": {
+    "enabled": false
+  },
+  "usageStatisticsEnabled": false,
+  "chatCompression": {
+    "contextPercentageThreshold": 0.8
+  },
+  "ideMode": true,
+  "selectedAuthType": "oauth-personal"
+}

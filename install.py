@@ -26,12 +26,13 @@ class ConfigError(InstallError):
 
 
 class ConfigInstaller:
-    """Handles installation of Claude Code and OpenCode configurations"""
+    """Handles installation of Claude Code, OpenCode, and Gemini CLI configurations"""
 
     def __init__(self, repo_dir: Optional[Path] = None):
         self.repo_dir = repo_dir or Path(__file__).parent.absolute()
         self.claude_dir = Path.home() / ".claude"
         self.opencode_dir = Path.home() / ".config" / "opencode"
+        self.gemini_dir = Path.home() / ".gemini"
 
     def validate_source(self, path: str) -> bool:
         """Validate that source path exists in repository"""
@@ -209,19 +210,59 @@ class ConfigInstaller:
             print(f"Error installing OpenCode: {e}")
             return False
 
+    def install_gemini(self) -> bool:
+        """Install Gemini CLI configuration"""
+        print("Installing Gemini CLI configuration...")
+
+        try:
+            self.gemini_dir.mkdir(parents=True, exist_ok=True)
+            success = True
+
+            # Install configuration
+            if (
+                self.validate_source("gemini/settings.json")
+                and (self.repo_dir / "gemini" / "settings.json").is_file()
+            ):
+                print("Installing Gemini CLI configuration...")
+                shutil.copy2(
+                    self.repo_dir / "gemini" / "settings.json",
+                    self.gemini_dir / "settings.json",
+                )
+                print("✓ Gemini CLI configuration installed")
+
+            # Install shared AGENTS.md
+            if (
+                self.validate_source("common/AGENTS.md")
+                and (self.repo_dir / "common" / "AGENTS.md").is_file()
+            ):
+                print("Installing shared AGENTS.md for Gemini CLI...")
+                if self.create_symlink(
+                    self.repo_dir / "common" / "AGENTS.md",
+                    self.gemini_dir / "AGENTS.md",
+                ):
+                    print("✓ Gemini CLI shared AGENTS.md installed")
+
+            return success
+
+        except (SymlinkError, OSError) as e:
+            print(f"Error installing Gemini CLI: {e}")
+            return False
+
     def install_all(self) -> bool:
-        """Install both Claude Code and OpenCode configurations"""
-        print("Claude Code & OpenCode Configuration Installation")
-        print("=================================================")
+        """Install Claude Code, OpenCode, and Gemini CLI configurations"""
+        print("Claude Code, OpenCode & Gemini CLI Configuration Installation")
+        print("===============================================================")
 
         claude_success = self.install_claude_code()
         opencode_success = self.install_opencode()
+        gemini_success = self.install_gemini()
 
-        if claude_success and opencode_success:
+        if claude_success and opencode_success and gemini_success:
             print("")
             print("✅ Installation complete!")
             print("Claude Code configuration is available in ~/.claude/")
             print("OpenCode configuration is available in ~/.config/opencode/")
+            print("Gemini CLI configuration is available in ~/.gemini/")
             return True
         else:
             print("")
