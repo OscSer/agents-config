@@ -218,6 +218,17 @@ class ConfigInstaller:
             self.gemini_dir.mkdir(parents=True, exist_ok=True)
             success = True
 
+            # Install commands
+            if (
+                self.validate_source("gemini/commands")
+                and (self.repo_dir / "gemini" / "commands").is_dir()
+            ):
+                print("Installing custom commands for Gemini CLI...")
+                if self.create_symlink(
+                    self.repo_dir / "gemini" / "commands", self.gemini_dir / "commands"
+                ):
+                    print("✓ Gemini CLI commands installed")
+
             # Install configuration
             if (
                 self.validate_source("gemini/settings.json")

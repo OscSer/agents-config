@@ -8,10 +8,11 @@
     "GlobTool",
     "EditTool",
     "ReadManyFilesTool",
-    "ShellTool",
     "WebFetchTool",
     "WebSearchTool",
-    "MemoryTool"
+    "MemoryTool",
+    "ShellTool",
+    "ShellTool(git diff)"
   ],
   "excludeTools": ["ShellTool(git commit)", "ShellTool(git push)"],
   "mcpServers": {
