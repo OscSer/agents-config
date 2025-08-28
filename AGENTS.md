@@ -7,24 +7,23 @@ Personal configuration for AI agents.
 - `claude/` - Claude Code configuration
 - `gemini/` - Gemini CLI configuration
 - `opencode/` - OpenCode configuration
-- `common/` - Common configuration
 - `install.py` - Automated installation with symbolic links
 
 ## Development
 
-Follow specific documentation for each agent:
+ALWAYS consult the appropriate documentation to create, modify, or expand logic in each directory:
 
-### Claude Code
+**Claude Code**
 
 - [Settings](https://docs.anthropic.com/en/docs/claude-code/settings)
 - [Commands](https://docs.anthropic.com/en/docs/claude-code/slash-commands)
 
-### Gemini
+**Gemini**
 
 - [Settings](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md)
 - [Commands](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/commands.md)
 
-### OpenCode
+**Opencode**
 
 - [Settings](https://opencode.ai/docs/config/)
 - [Commands](https://opencode.ai/docs/commands/)

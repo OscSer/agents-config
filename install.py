@@ -114,12 +114,12 @@ class ConfigInstaller:
 
             # Install commands
             if (
-                self.validate_source("common/commands")
-                and (self.repo_dir / "common" / "commands").is_dir()
+                self.validate_source("claude/commands")
+                and (self.repo_dir / "claude" / "commands").is_dir()
             ):
-                print("Installing common custom commands for Claude Code...")
+                print("Installing Claude Code custom commands...")
                 if self.create_symlink(
-                    self.repo_dir / "common" / "commands", self.claude_dir / "commands"
+                    self.repo_dir / "claude" / "commands", self.claude_dir / "commands"
                 ):
                     print("✓ Claude Code commands installed")
 
@@ -170,12 +170,12 @@ class ConfigInstaller:
 
             # Install commands
             if (
-                self.validate_source("common/commands")
-                and (self.repo_dir / "common" / "commands").is_dir()
+                self.validate_source("opencode/commands")
+                and (self.repo_dir / "opencode" / "commands").is_dir()
             ):
-                print("Installing common custom commands for OpenCode...")
+                print("Installing OpenCode custom commands...")
                 if self.create_symlink(
-                    self.repo_dir / "common" / "commands",
+                    self.repo_dir / "opencode" / "commands",
                     self.opencode_dir / "command",
                 ):
                     print("✓ OpenCode commands installed")
