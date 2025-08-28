@@ -7,6 +7,7 @@ Personal configuration for AI agents.
 - `claude/` - Claude Code configuration
 - `gemini/` - Gemini CLI configuration
 - `opencode/` - OpenCode configuration
+- `rules/` - Shared agent rules
 - `install.py` - Automated installation with symbolic links
 
 ## Development
@@ -29,6 +30,6 @@ Personal configuration for AI agents.
 **Opencode docs**
 
 - [Settings](https://opencode.ai/docs/config/)
-- [Commands](https://opencode.ai/docs/commands/)
+- [Commands](https://opencode.ai/docs/commands/#markdown)
 - [MCP](https://opencode.ai/docs/mcp-servers/)
 - [Rules](https://opencode.ai/docs/rules/)
