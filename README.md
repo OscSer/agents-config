@@ -64,7 +64,6 @@ cp common/AGENTS.md ~/.config/opencode/AGENTS.md
 │       └── config.json       # OpenCode configuration
 ├── common/
 │   ├── commands/             # Shared slash commands for both agents
-│   ├── templates/            # Shared templates for development
 │   └── AGENTS.md             # Shared agent instructions
 └── install.py                # Automatic installation script
 ```
